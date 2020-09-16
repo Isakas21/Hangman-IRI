@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:io';
 class Dictionary {
   /*
    * #1. Se puede tener:  --RAUL
@@ -8,7 +10,19 @@ class Dictionary {
    *     p.ej. https://random-word-api.herokuapp.com/word
    * La palabra devuelta debe ser aleatoria.
    */
+  
   String makeRandomWord() {
-    return "bullseye"; // stub
+    
+    new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
+    .then((HttpClientRequest request) => request.close());
+    // .then((HttpClientResponse response) => response.transform(new Utf8Decoder()).listen(print));
+  //  return "bullseye"; // stub
   }
+
+  
 }
+void main() {
+    Dictionary diccionario = new Dictionary();
+    String a = (diccionario.makeRandomWord());
+    print(a);
+  }

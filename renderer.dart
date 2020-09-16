@@ -10,6 +10,7 @@ class Renderer {
   }
 
   /*
+   * IÑAKI
    * #7. Hay que representar correctamente la horca
    * teniendo en cuenta la clase Gallows.
    */
