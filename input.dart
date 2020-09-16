@@ -2,6 +2,7 @@ import 'dart:io';
 
 class Input {
   /*
+   * IÑAKI
    * #2. Controlar que el byte leido es una letra.
    * Sino, devolver un caracter que luego se procese,
    * para no ser tratado como una letra valida.
