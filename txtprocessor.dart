@@ -8,15 +8,22 @@ class TxtProcessor {
   }
 
   /*
+   * IÑAKI
    * #3. Se está probando una nueva letra? está en la lista de intentos?
    * Si la letra no está en [a-z] o [A-Z] será falso.
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual.
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
-    return true; // stub
+    var letterLower = letter.toLowerCase();
+    if (letterTrialList.contains(letterLower)) {
+      return true;
+    } else {
+      return true;
+    }
   }
 
   /*
+   * RAUL
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
@@ -24,6 +31,7 @@ class TxtProcessor {
   }
 
   /*
+   * IDOIA
    * #5. Las letras de la lista que estén en la palabra clave
    * deben ser representadas en las posiciones que aparecen en ella.
    * Si una letra no está en la lista se representará con guión bajo.
@@ -36,6 +44,7 @@ class TxtProcessor {
   }
 
   /*
+   * IDOIA
    * #6. Las letras que están en la lista pero no en la palabra clave
    * deben aparecer separadas por un espacio.
    * Ej. Si keyword = "bullseye" y la lista es ["a","b","i","s","t","e","u"]

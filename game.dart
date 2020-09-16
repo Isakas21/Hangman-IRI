@@ -39,6 +39,7 @@ class Game {
   }
 
   /*
+   * IDOIA
    * #8. Hay que comprobar si se ha ganado y
    * en ese caso actualizar el estado
    * para que salga del game loop.
