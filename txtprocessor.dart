@@ -15,8 +15,8 @@ class TxtProcessor {
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
     var letterLower = letter.toLowerCase();
-    if (letterTrialList.contains(letterLower)) {
-      return true;
+    if (letterTrialList.contains(letterLower) || letter == "#") {
+      return false;
     } else {
       return true;
     }
