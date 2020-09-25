@@ -32,8 +32,17 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e"
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    return "b u _ _ s e _ e"; // stub
-  }
+    var palabra = "";
+    for (int i = 0; i < letterTrialList.length; i++) {
+      var letra = letterTrialList[i];
+      if (TxtProcessor.isLetterInWord(letra, keyword)) {
+        palabra += " " + letra;
+      } else {
+        palabra += " _";
+      }
+    }
+    return palabra;
+  } //return "b u _ _ s e _ e"; // stub
 
   /*
    * #6. Las letras que están en la lista pero no en la palabra clave
