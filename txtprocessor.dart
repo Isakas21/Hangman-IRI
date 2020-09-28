@@ -14,7 +14,12 @@ class TxtProcessor {
    * No es sensitivo a mayúsculas y minúsculas, la 'a' y la 'A' son igual.
    */
   static bool isNewLetterInList(String letter, List<String> letterTrialList) {
-    return true; // stub
+    var letterLower = letter.toLowerCase();
+    if (letterTrialList.contains(letterLower) || letter == "#") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   /*
@@ -34,7 +39,13 @@ class TxtProcessor {
    * devolverá "b u _ _ s e _ e"
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
-    return "b u _ _ s e _ e"; // stub
+    var palabra = "";
+    for (var i = 0; i < letterTrialList.length; i++) {
+      if (isLetterInWord(letterTrialList[i], keyword)) {
+        palabra += letterTrialList[i];
+      }
+    } //return "b u _ _ s e _ e"; // stub
+    return palabra;
   }
 
   /*
@@ -48,7 +59,9 @@ class TxtProcessor {
     var missedLetters = "";
     // stub (está mal, incorpora todas las letras, era para ver cambios)
     for (int i = 0; i < letterTrialList.length; i++) {
-      missedLetters = "$missedLetters ${letterTrialList[i]}";
+      if (!TxtProcessor.isLetterInWord(letterTrialList[i], keyword)) {
+        missedLetters += " ${letterTrialList[i]}";
+      }
     }
     return missedLetters;
   }
