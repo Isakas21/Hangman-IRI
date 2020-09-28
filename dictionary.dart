@@ -13,13 +13,12 @@ class Dictionary {
   
   String makeRandomWord() {
     
-   new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
-   .then((HttpClientRequest request) => request.close())
-   .then((HttpClientResponse response) => response.transform(new Utf8Decoder()).listen(print));
+   //new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
+  // .then((HttpClientRequest request) => request.close())
+   //.then((HttpClientResponse response) => response.transform(new Utf8Decoder()).listen(print));
    
 
-  String JsonContent="";
-  String palabra = "";
+  String palabra ="";
 
   new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
   .then((HttpClientRequest request)
@@ -30,17 +29,18 @@ class Dictionary {
   .then((HttpClientResponse response)
    {
       response.transform(new Utf8Decoder()).listen((contents) {
-        JsonContent = contents.toString();
-        palabra = JsonContent;
-        //onDataLoaded(JsonContent);
+        palabra = contents.toString();
       }, onDone: () => print(palabra));
+   })..onDone((){
+      
    });
-  // return cliente; // stub
+  return palabra; // stub
   }
 
   
 }
 void main() {
     Dictionary diccionario = new Dictionary();
-    print(diccionario.makeRandomWord());
-  }
+    String a = diccionario.makeRandomWord();
+
+    }
