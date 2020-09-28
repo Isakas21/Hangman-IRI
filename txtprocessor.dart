@@ -20,7 +20,8 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
-    return false; // stub
+    return word.contains(letter);
+    //return false; // stub
   }
 
   /*
@@ -33,16 +34,13 @@ class TxtProcessor {
    */
   static String guessedLetters(String keyword, List<String> letterTrialList) {
     var palabra = "";
-    for (int i = 0; i < letterTrialList.length; i++) {
-      var letra = letterTrialList[i];
-      if (TxtProcessor.isLetterInWord(letra, keyword)) {
-        palabra += " " + letra;
-      } else {
-        palabra += " _";
+    for (var i = 0; i < letterTrialList.length; i++) {
+      if (isLetterInWord(letterTrialList[i], keyword)) {
+        palabra += letterTrialList[i];
       }
-    }
+    } //return "b u _ _ s e _ e"; // stub
     return palabra;
-  } //return "b u _ _ s e _ e"; // stub
+  }
 
   /*
    * #6. Las letras que están en la lista pero no en la palabra clave
@@ -55,7 +53,7 @@ class TxtProcessor {
     // stub (está mal, incorpora todas las letras, era para ver cambios)
     for (int i = 0; i < letterTrialList.length; i++) {
       if (!TxtProcessor.isLetterInWord(letterTrialList[i], keyword)) {
-        missedLetters = " ${letterTrialList[i]}";
+        missedLetters += " ${letterTrialList[i]}";
       }
     }
     return missedLetters;
