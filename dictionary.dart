@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
+
 class Dictionary {
   /*
    * #1. Se puede tener:  --RAUL
@@ -12,35 +14,29 @@ class Dictionary {
    */
   
   String makeRandomWord() {
-    
-   //new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
-  // .then((HttpClientRequest request) => request.close())
-   //.then((HttpClientResponse response) => response.transform(new Utf8Decoder()).listen(print));
-   
-
-  String palabra ="";
-
-  new HttpClient().getUrl(Uri.parse('https://random-word-api.herokuapp.com/word'))
-  .then((HttpClientRequest request)
-   {
-      request.headers.removeAll(HttpHeaders.ACCEPT_ENCODING);
-      return request.close();
-   })
-  .then((HttpClientResponse response)
-   {
-      response.transform(new Utf8Decoder()).listen((contents) {
-        palabra = contents.toString();
-      }, onDone: () => print(palabra));
-   })..onDone((){
+    String contenido = "";
+    new File('palabras.txt').readAsString().then((String contents) {
+      String contenido = contents;
+      var array = contenido.split(',');
+      var rng = new Random();
+      int numero = rng.nextInt(array.length - 1) + 0;
+      if(numero == 1){
+        return array[numero].substring(2, array[numero].length - 2);
+      }
+      else if(numero == array.length - 1){
+        return array[numero].substring(2, array[numero].length - 2);
+      }
+      else{
+        return array[numero].substring(1, array[numero].length - 1);
+      }
       
-   });
-  return palabra; // stub
+  });
   }
 
   
 }
 void main() {
     Dictionary diccionario = new Dictionary();
-    String a = diccionario.makeRandomWord();
-
+    String diccionari = diccionario.makeRandomWord();
+    
     }
