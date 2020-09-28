@@ -20,7 +20,6 @@ class TxtProcessor {
    * #4. Comprobar si una letra está en una palabra.
    */
   static bool isLetterInWord(String letter, String word) {
-    return word.contains(letter);
     //return false; // stub
   }
 
