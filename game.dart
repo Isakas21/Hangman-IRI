@@ -50,7 +50,12 @@ class Game {
     if (!TxtProcessor.isLetterInWord(inputLetter, keyword)) mistakeCounter++;
     guessedLetters = TxtProcessor.guessedLetters(
         keyword, letterTrialList); // ~ "b u _ _ s e _ e"
-    gameStatus = (mistakeCounter < MAX_MISTAKES) ? Status.playing : Status.lost;
+
+    if (guessedLetters == keyword) {
+      gameStatus = Status.won;
+    } else
+      gameStatus =
+          (mistakeCounter < MAX_MISTAKES) ? Status.playing : Status.lost;
     missedLetters =
         TxtProcessor.missedLetters(keyword, letterTrialList); // ~ "a i t"
   }
